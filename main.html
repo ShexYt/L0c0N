@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Injecting Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #121212;
+            color: #FFFFFF;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: url('https://i.ibb.co/gPymk3x/New-Project-7-77-AA58-A.png') no-repeat center/cover;
+            animation: rotate 3s linear infinite;
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .title {
+            font-size: 30px;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .title span {
+            color: #00FF00;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .progress-container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #333333;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            height: 30px;
+            width: 0;
+            background-color: #FFFFFF;
+            border-radius: 15px 0 0 15px;
+            transition: width 20s ease-in-out;
+        }
+        .message {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .success-message {
+            font-size: 20px;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .success-message span {
+            color: #00FF00;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo"></div>
+    <div class="container">
+        <div class="title">LOCON <span>X</span></div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="message" id="message">Please Wait Until Injecting Is Done</div>
+        <div class="success-message" id="successMessage">Inject <span>Successfully</span></div>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            const progressBar = document.getElementById('progressBar');
+            const message = document.getElementById('message');
+            const successMessage = document.getElementById('successMessage');
+
+            progressBar.style.width = '100%';
+
+            setTimeout(() => {
+                progressBar.style.width = '0';
+                progressBar.style.transition = 'width 1s ease-in-out';
+            }, 20000);
+
+            setTimeout(() => {
+                progressBar.style.display = 'none';
+                successMessage.style.opacity = 1;
+            }, 21000);
+        };
+    </script>
+</body>
+</html>
