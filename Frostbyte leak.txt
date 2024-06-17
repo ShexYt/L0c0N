@@ -5,15 +5,23 @@ until game:IsLoaded()
 local library
 do
     local folder = "CannonCFG"
-    local services = setmetatable({}, {
-        __index = function(_, service)
-            if service == "InputService" then
-                return game:GetService("UserInputService")
-            end
-
-            return game:GetService(service)
+local services = setmetatable({}, {
+    __index = function(_, service)
+        if service == "InputService" then
+            return game:GetService("UserInputService")
         end
-    })
+
+        local success, result = pcall(function()
+            return game:GetService(service)
+        end)
+        if success then
+            return result
+        else
+            warn("Failed to get service: " .. service)
+            return nil
+        end
+    end
+})
 
     local utility = {}
 
