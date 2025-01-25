@@ -125,7 +125,7 @@ do
 			end;
 		end;
 
-		Font:Register("UI_FONT", 400, "normal", {Id = "ProggyClean.ttf", Font = ""});
+		Font:Register("UI_FONT", 400, "normal", {Id = "hypik.ttf", Font = ""});
 	end
 
 	-- // Misc Functions
