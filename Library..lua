@@ -1,6 +1,6 @@
 
-if not isfile("ProggyClean.ttf") then
-	writefile("ProggyClean.ttf", game:HttpGet("https://github.com/f1nobe7650/other/raw/main/ProggyClean.ttf"))
+if not isfile("hypik.ttf") then
+	writefile("hypik.ttf", game:HttpGet("https://github.com/ShexYt/fonts/raw/main/hypik.ttf"))
 end
 if isfile("UI_FONT.font") then
 	delfile("UI_FONT.font")
